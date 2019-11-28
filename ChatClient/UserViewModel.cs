@@ -14,7 +14,7 @@ namespace ChatClient
 {
     class UserViewModel : INotifyPropertyChanged, IServiceChatCallback
     {
-        private bool isConnected = true;
+        private bool isConnected = false;
         private ServiceChatClient client;
         private int ID;
 
@@ -41,7 +41,7 @@ namespace ChatClient
             set
             {
                 name = value;
-                OnPropertyChanged("Select_equation");
+                OnPropertyChanged();
             }
         }
         public string Message
@@ -50,7 +50,7 @@ namespace ChatClient
             set
             {
                 message = value;
-                OnPropertyChanged("Select_equation");
+                OnPropertyChanged();
             }
         }
        
@@ -69,17 +69,17 @@ namespace ChatClient
                   (addCommand1 = new Uzing_command(obj =>
                   {
                       
-                      if (isConnected == false)
+                      if (isConnected == true)
                       {                              
                               C.Disconnect(I);
                               C = null;
-                              ISC = true;                          
+                              ISC = false;                          
                       }
                       else
                       {
                               C = new ServiceChatClient(new System.ServiceModel.InstanceContext(this));
                               I = client.Connect(name);
-                              ISC = false;                          
+                              ISC = true;                          
                       }
                   }));
             }
@@ -89,7 +89,7 @@ namespace ChatClient
         {
             get { return isConnected; }
             set { isConnected = value;
-                OnPropertyChanged("Select_equation");
+                OnPropertyChanged();
             }
         }
         //добавление команды текстбоксом
@@ -116,6 +116,5 @@ namespace ChatClient
         public event PropertyChangedEventHandler PropertyChanged; 
         private void OnPropertyChanged([CallerMemberName]string propertyName = "")
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
     }
 }

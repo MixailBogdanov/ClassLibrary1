@@ -9,19 +9,6 @@
     Width="500"
     Height="500"
     mc:Ignorable="d">
-    <!--<Window.Resources>
-        <Style  TargetType="Button" >
-            <Setter Property="Background" Value="Aquamarine" />
-            <Setter Property="Content" Value="CONNECT" />
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=ISC}" Value="true">
-                    <Setter Property="Background" Value="Red" />
-                    <Setter Property="Content" Value="DISCONNECT" />
-                </DataTrigger>
-
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>-->
     <Grid>
         <Button
             x:Name="button1"
@@ -31,22 +18,16 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Command="{Binding AddCommand1}">
+            
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Gold" />
                     <Setter Property="Content" Value="CONNECT" />
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ISC}" Value="true">
-                            <Setter Property="Background" Value="Red" />
+                        <DataTrigger Binding="{Binding Path=ISC}" Value="true">
+                            <Setter Property="Background" Value="DimGray" />
                             <Setter Property="Content" Value="DISCONNECT" />
                         </DataTrigger>
-                        <!--<MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding ISC}" Value="true" />
-                            </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" Value="Red"/>
-                            <Setter Property="Content" Value="DISCONNECT"/>
-                        </MultiDataTrigger>-->
                     </Style.Triggers>
                 </Style>
             </Button.Style>
