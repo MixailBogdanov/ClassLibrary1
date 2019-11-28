@@ -40,8 +40,10 @@ namespace ChatClient
             get { return name; }
             set
             {
-                name = value;
-                OnPropertyChanged();
+                if(value != null) {
+                    name = value;
+                    OnPropertyChanged();
+                }                    
             }
         }
         public string Message
@@ -49,8 +51,10 @@ namespace ChatClient
             get { return message; }
             set
             {
-                message = value;
-                OnPropertyChanged();
+                if (value != "") {
+                    message = value;
+                    OnPropertyChanged();
+                }
             }
         }
        
