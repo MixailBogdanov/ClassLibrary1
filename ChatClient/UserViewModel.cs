@@ -40,7 +40,7 @@ namespace ChatClient
             get { return name; }
             set
             {
-                if(value != null) {
+                if(value != "") {
                     name = value;
                     OnPropertyChanged();
                 }                    
@@ -63,7 +63,7 @@ namespace ChatClient
             Messages.Add(msg);
         }    
         
-        //Добавление команды кнопки
+        //Добавление команды для кнопки соединения
         private Uzing_command addCommand1;
         public Uzing_command AddCommand1
         {
